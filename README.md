@@ -1,5 +1,5 @@
 # electivesManagement
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8. A detailed presentation on the project can be found [here.](https://github.com/ananda-sreenidhi/electivesManagement/raw/master/electivesManagement_Presentation.pdf).
 
 ## First run
 Type `npm install` in project directory and use `npm run json` in the same.
