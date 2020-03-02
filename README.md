@@ -2,8 +2,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
 ## First run
-Type `npm install` in project directory.
-and use `npm run json` in the same.
+Type `npm install` in project directory and use `npm run json` in the same.
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
