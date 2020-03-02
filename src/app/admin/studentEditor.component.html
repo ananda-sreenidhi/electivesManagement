@@ -1,0 +1,80 @@
+<!-- <div *ngIf = "student.electiveAllotted">
+    <p>You cannot edit Student Information if elective has already been allotted!</p>
+    <button type="reset" class="btn btn-secondary" routerLink="/admin/main/students">Back</button>
+</div> -->
+<form novalidate #form="ngForm" (ngSubmit)="save(form)">
+    <div class="form-group" *ngIf="!editing">
+        <label>Roll Number</label>
+        <input class="form-control" name="roll" [(ngModel)]="student.roll" />
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" name="name" [(ngModel)]="student.name" />
+    </div>
+    <div class="form-group">
+        <label>Branch</label>
+        <input class="form-control" name="branch" [(ngModel)]="student.branch" />
+    </div>
+    <div class="form-group">
+        <label>Semester</label>
+        <input class="form-control" name="semester" [(ngModel)]="student.semester" />
+    </div>
+    <div class="form-group">
+        <label>Gender:</label>
+        <select class="form-control" #name="ngModel" name="gender" [(ngModel)]="student.gender">
+            <option>M</option>
+            <option>F</option>
+            <option>Unspecified</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>DOB</label>
+        <input class="form-control" name="dob" [(ngModel)]="student.dob" />
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input class="form-control" name="email" [(ngModel)]="student.email" type="email" />
+    </div>
+    <div class="form-group">
+        <label>Phone</label>
+        <input class="form-control" name="phone" [(ngModel)]="student.phone" />
+    </div>
+    <div class="form-group">
+        <label>CGPA</label>
+        <input class="form-control" name="cgpa" [(ngModel)]="student.cgpa" required />
+    </div>
+
+    <div class="form-group" *ngIf="!student.electiveAllotted">
+        <label>Elective Choice 1:</label>
+        <select class="form-control" #name="ngModel" name="e1" [(ngModel)]="student.e1" required>
+            <option>Advanced Java</option>
+            <option>Big Data</option>
+            <option>Cyber Security</option>
+            <option>IoT</option>
+        </select>
+    </div>
+    <div class="form-group" *ngIf="!student.electiveAllotted">
+        <label>Elective Choice 2:</label>
+        <select class="form-control" #name="ngModel" name="e2" [(ngModel)]="student.e2">
+            <option>Advanced Java</option>
+            <option>Big Data</option>
+            <option>Cyber Security</option>
+            <option>IoT</option>
+        </select>
+    </div>
+
+    <div class="form-group" *ngIf="(student.e1!='') && student.electiveAllotted==''">
+        <label>Allot Elective: </label>
+        <select class="form-control" #name="ngModel" name="electiveAllotted" [(ngModel)]="student.electiveAllotted">
+            <option>{{student.e1}}</option>
+            <option *ngIf="student.e2!=''">{{student.e2}}</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [class.btn-warning]="editing" style = "margin-right:20px;">
+        {{editing ? "Save" : "Create"}}
+    </button>
+    <button type="reset" class="btn btn-secondary" routerLink="/admin/main/students">
+        Cancel
+    </button>
+</form>

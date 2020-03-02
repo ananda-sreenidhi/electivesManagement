@@ -1,0 +1,31 @@
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Roll No.</th>
+            <th>Name</th>
+            <th>Branch</th>
+            <th>Semester</th>
+            <th>CGPA</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let s of getStudents()">
+            <td>{{s.roll}}</td>
+            <td>{{s.name}}</td>
+            <td>{{s.branch}}</td>
+            <td>{{s.semester}}</td>
+            <td>{{s.cgpa}}</td>
+            <td>
+                <button style="margin-right:20px;" class = "btn btn-sm btn-info" [routerLink]="['/admin/main/details/view', s.id]">View</button>
+                <button *ngIf = "!s.electiveAllotted" style="margin-right:20px;" class="btn btn-sm btn-warning" [routerLink]="['/admin/main/students/edit', s.id]">
+                    Edit
+                </button>
+                <button class="btn btn-sm btn-danger" (click)="deleteStudent(s.id)">
+                    Delete
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button class="btn btn-primary" routerLink="/admin/main/students/create">Create New Student</button>

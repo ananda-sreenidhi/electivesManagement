@@ -1,0 +1,33 @@
+
+<!-- <div class="card m-1 p-1 bg-dark">
+    {{s.roll}}<br>
+    {{s.name}}<br>
+    {{s.branch}}<br>
+    {{s.gender}}<br>
+    {{s.dob}}<br>
+    {{s.email}}<br>
+    {{s.phone}}<br>
+    {{s.semester}}<br>
+    {{s.cgpa}}<br>
+    {{s.electiveAllotted}}
+</div> -->
+<div class="card m-1 p-1 bg-dark">
+    <h4><font color = "white">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        {{s.name}}</font>
+        <span class="badge badge-pill badge-primary" style= "margin-left: 10px;">{{s.roll}}</span>
+    </h4>
+    <div class="card-text bg-light p-1">
+        <span class="badge badge-warning" style = "float:right;font-size: 14px;" *ngIf = "s.electiveAllotted">{{s.electiveAllotted}}</span>
+        Branch: {{s.branch}}<br>
+        Gender: {{s.gender}}<br>
+        DOB: {{s.dob}}<br>
+        Email: {{s.email}}<br>
+        Phone: {{s.phone}}<br>
+        Semester: {{s.semester}}<br>
+        CGPA: {{s.cgpa}}<br>
+    </div>
+</div>
+<button type="reset" class="btn btn-secondary" routerLink="/admin/main/students">
+    Back
+</button>

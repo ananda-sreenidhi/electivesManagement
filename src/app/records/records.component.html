@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col bg-dark text-white">
+      <a class="navbar-brand">STUDENT ELECTIVES MANAGEMENT SYSTEM</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3 p-2">
+      <button class="btn btn-block btn-outline-primary" (click)="changeBranch()">Home</button>
+      <select *ngFor="let branch of branches" class="btn btn-outline-primary btn-block"[class.active]="branch == selectedBranch">
+      <option value="" disabled selected>{{branch}}</option>
+      <option *ngFor="let semester of semesters" [class.active]="semester == selectedSemester" (click)="changeSemester(semester)">{{branch}} {{semester}}</option>
+      </select>
+      <button class="btn btn-block btn-danger m-t-3" routerLink="/admin">
+        Admin Login
+      </button>
+    </div>
+    <div class="col-9 p-2">
+      <div *ngFor="let student of students" class="card m-1 p-1 bg-dark">
+        <h4><font color = "white">
+          <i class="fa fa-user" aria-hidden="true"></i>
+        {{student.name}}</font>
+        <span class="badge badge-pill badge-primary" style= "margin-left: 10px;">
+        {{student.roll}}</span>
+        </h4>
+        <div class="card-text bg-light p-1">
+            <span class="badge badge-warning" style = "float:right;font-size: 14px;" *ngIf = "student.electiveAllotted">{{student.electiveAllotted}}</span>
+            DOB: {{student.dob}}<br>Gender: {{student.gender}}<br>Email: {{student.email}}<br>Phone: {{student.phone}}<br>CGPA: {{student.cgpa}}
+        </div>
+      </div>
+      <button type="reset" class="btn btn-secondary" onclick = "location.reload();">Back</button>
+    </div>
+  </div>
+</div>
+
